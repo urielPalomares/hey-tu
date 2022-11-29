@@ -1,0 +1,66 @@
+<div class="relative flex flex-col sm:flex-row h-full w-full">
+  <div class="h-screen lg:w-1/2 xl:w-1/2 sm:w-full bg-neutral-900">
+    <div class="mx-auto flex h-full w-2/3 flex-col justify-center text-white xl:w-1/2">
+      <div class="text-center">
+        <p class="text-6xl">Hey Tu</p>
+      </div>
+      <div class="mt-10">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="mt-4">
+            <label class="mb-2.5 block font-extrabold" for="email">Country</label>
+            <select
+              class="inline-block w-full rounded-md bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30"
+              id="country"
+              formControlName="country"
+            >
+              <option *ngFor="let item of countriesOptions" [ngValue]="item.code">
+                {{ item.flag }} {{ item.title }}
+              </option>
+            </select>
+          </div>
+          <div class="mt-4">
+            <label class="mb-2.5 block font-extrabold" for="email">Phone Number</label>
+            <input
+              type="number"
+              id="phone"
+              class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30"
+              placeholder="1234567890"
+              formControlName="phone"
+            />
+          </div>
+          <div class="mt-4">
+            <label class="mb-2.5 block font-extrabold" for="email">Message</label>
+            <textarea
+              id="message"
+              rows="4"
+              class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Write the message to send..."
+              formControlName="message"
+            ></textarea>
+          </div>
+          <div class="my-10">
+            <button
+              type="button"
+              (click)="onReset()"
+              class="w-full rounded-full text-gray-400 hover:text-gray-500 mb-5"
+            >
+              Reset
+            </button>
+            <button
+              class="w-full rounded-full bg-green-600 p-5 hover:bg-green-700"
+              type="submit"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    <div class="h-0 lg:h-screen lg:w-1/2 xl:w-1/2 bg-blue-600 invisible lg:visible">
+    <img
+        src="https://images.unsplash.com/photo-1578364249730-0c4ee16426fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80"
+        class="h-full w-full"
+    />
+    </div>
+</div>
